@@ -1,3 +1,5 @@
+package org.firstinspires.ftc.teamcode;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -13,8 +15,8 @@ import org.firstinspires.ftc.teamcode.mechanisms.MecanumFieldRelativeDrive;
  * - Uses goBILDA StarterBot style (alliance selection in init_loop, enum state machine)
  */
 
-@Autonomous(name = "Auto_Shoot3_BackUp_SM", group = "StarterBot")
-public class AutoShoot3BackUp extends OpMode {
+@Autonomous(name = "Auto_Shoot_Three", group = "StarterBot")
+public class AutoBackUp extends OpMode {
 
     // --- Subsystems ---
     private final Launcher launcher = new Launcher();
@@ -38,7 +40,7 @@ public class AutoShoot3BackUp extends OpMode {
     private Alliance alliance = Alliance.RED;  // default
 
     // --- Shot tracking ---
-    private int shotsToFire = 3;        // how many TOTAL we want to fire
+    private int shotsToFire = 0;        // how many TOTAL we want to fire
     private int shotsFired = 0;         // how many we've detected
     private boolean wasLaunching = false;  // for detecting the start of each shot
 
@@ -149,7 +151,7 @@ public class AutoShoot3BackUp extends OpMode {
                 if (alliance == Alliance.RED)  turn = TURN_MAGNITUDE;
                 else if (alliance == Alliance.BLUE) turn = -TURN_MAGNITUDE;
 
-                drive.drive(BACK_UP_POWER, turn, 0);
+                drive.drive(-0.1, 0, 0);
 
                 if (backUpTimer.seconds() >= BACK_UP_TIME) {
                     autonomousState = AutonomousState.COMPLETE;
@@ -172,9 +174,6 @@ public class AutoShoot3BackUp extends OpMode {
         if (isLaunchingNow && !wasLaunching) {
             shotsFired++;
             shotTimer.reset();   // start timing for the next shot
-        }
-        if (shotsFired > shotsToFire) {
-            shotsFired = shotsToFire;
         }
         wasLaunching = isLaunchingNow;
 

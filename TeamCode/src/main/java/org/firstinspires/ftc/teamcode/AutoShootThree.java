@@ -15,7 +15,7 @@ import org.firstinspires.ftc.teamcode.mechanisms.MecanumFieldRelativeDrive;
  * - Uses goBILDA StarterBot style (alliance selection in init_loop, enum state machine)
  */
 
-@Autonomous(name = "Auto_Shoot3_BackUp_SM", group = "StarterBot")
+@Autonomous(name = "Auto_Shoot_Three", group = "StarterBot")
 public class AutoShootThree extends OpMode {
 
     // --- Subsystems ---
