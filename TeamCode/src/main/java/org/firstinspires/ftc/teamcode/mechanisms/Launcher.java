@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
+
 public class Launcher {
     private final double FEED_TIME_SECONDS = 0.20; //The feeder servos run this long when a shot is requested.
     private final double STOP_SPEED = 0.0; //We send this power to the servos when we want them to stop.
@@ -32,7 +33,7 @@ public class Launcher {
     private LaunchState launchState;
 
     public void init(HardwareMap hwMap){
-        launcher = hwMap.get(DcMotorEx.class, "Launcher");
+        launcher = hwMap.get(DcMotorEx.class, "launcher");
         leftFeeder = hwMap.get(CRServo.class, "left_feeder");
         rightFeeder = hwMap.get(CRServo.class, "right_feeder");
 

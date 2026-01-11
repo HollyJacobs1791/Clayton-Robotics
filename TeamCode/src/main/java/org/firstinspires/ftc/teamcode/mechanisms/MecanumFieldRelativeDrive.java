@@ -18,10 +18,10 @@ public class MecanumFieldRelativeDrive{
     private boolean isPinpoint;
 
     public void init(HardwareMap hwMap, boolean isGobildaPinpointIMU) {
-        frontLeftMotor = hwMap.get(DcMotor.class, "front_left_motor");
-        backLeftMotor = hwMap.get(DcMotor.class, "back_left_motor");
-        frontRightMotor = hwMap.get(DcMotor.class, "front_right_motor");
-        backRightMotor = hwMap.get(DcMotor.class, "back_right_motor");
+        frontLeftMotor = hwMap.get(DcMotor.class, "left_front_drive");
+        backLeftMotor = hwMap.get(DcMotor.class, "left_back_drive");
+        frontRightMotor = hwMap.get(DcMotor.class, "right_front_drive");
+        backRightMotor = hwMap.get(DcMotor.class, "right_back_drive");
 
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
@@ -57,8 +57,8 @@ public class MecanumFieldRelativeDrive{
             imu = hwMap.get(IMU.class, "imu");
 
             RevHubOrientationOnRobot RevOrientation = new RevHubOrientationOnRobot(
-                    RevHubOrientationOnRobot.LogoFacingDirection.RIGHT,
-                    RevHubOrientationOnRobot.UsbFacingDirection.FORWARD);
+                    RevHubOrientationOnRobot.LogoFacingDirection.RIGHT, //EDIT THIS
+                    RevHubOrientationOnRobot.UsbFacingDirection.FORWARD); //EDIT THIS
 
             imu.initialize(new IMU.Parameters(RevOrientation));
         }
