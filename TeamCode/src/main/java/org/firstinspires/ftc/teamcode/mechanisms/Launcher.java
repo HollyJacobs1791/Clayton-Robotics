@@ -17,6 +17,8 @@ public class Launcher {
     private final double LAUNCHER_TARGET_VELOCITY = 1125;
     private final double LAUNCHER_MIN_VELOCITY = 1075;
 
+    private final double MIN_SPINUP_TIME = 0.25;
+
     private DcMotorEx launcher;
 
     private CRServo leftFeeder, rightFeeder;
